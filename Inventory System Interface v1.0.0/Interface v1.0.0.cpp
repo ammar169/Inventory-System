@@ -1,3 +1,4 @@
+//this is only the simple idea of the interface
 #include <iostream>
 #include <string>
 #include <cstring>
