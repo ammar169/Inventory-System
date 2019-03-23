@@ -1,80 +1,62 @@
-//this is only the simple idea of the interface
+//This program is for the manager to record the sales in a day.
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <fstream>
-#include <cstdlib>
-#include <iomanip>
+#include <ctime>
+#include "Sales.h"
 using namespace std;
 
-int main()
-{
-	string branch;
-	char opt;
-	float price[] = { 0 }, amount[] = { 0 }, paid[] = { 0 };
-	int code[] = { 0 }, item;
-	ofstream file;
+int main() {
+	string	product_name;
+	char	category[50];
+	double	price;
+	int	code[8];
+	int	amount;
+	int	date	= 1;	//To hold current date
+	int	month	= 1;	//To hold current month
+	int	year	= 1900; //To hold current year
 
-	opt = 'y';
-
-	cout << "Insert Branch name: ";
-	cin >> branch;
-	cout << "How many item you want to insert?: ";
-	cin >> item;
-	cout << "-----------------------------------------------------------------------------------------------";
+	Sales a;
+	//Print current date
+	a.currentDate();
+	
+	//Promt user to insert the numbers of sales they want to store
+	int count;
+	cout << "How many sales record you want to key in: ";
+	cin >> count;
 	cout << endl;
 
-	while (opt == 'y' || opt == 'Y')
-	{
-
-		for (int i = 0; i < item; i++)
-		{
-			cout << "Enter code item (" << i + 1 << ") : ";
-			cin >> code[i];
-			cout << "Enter price per unit item (MYR): ";
-			cin >> price[i];
-			cout << "Enter the number of unit item sold: ";
-			cin >> amount[i];
+	for (int i = 0; i != 'x' || i != 'X'; i++) {
+		for (int j = 0; j < count; j++) {
+			cout << "|::::::::::|:::::::::|::::::::::|::::::::::|::::::::::|::::::::::|" << endl;
 			cout << endl;
-
-			paid[i] = price[i] * amount[i];
+			cout << "\tProduct " << i + 1 << "name\t: ";
+			cin >> product_name;
+			cout << endl;
+			cout << "\tProduct" << i + 1 << "Reference No.\t: ";
+			cin >> code[8];
+			cout << endl;
+			cout << "\tProduct" << i + 1 << "Price (per unit)\t: ";
+			cin >> price;
+			cout << endl;
+			cout << "\tProduct" << i + 1 << "Amount\t: ";
+			cin >> amount;
+			cout << endl;
+			cout << "\tProduct" << i + 1 << "Category\t: ";
+			cin >> category;
+			cout << endl;
+			cout << "|::::::::::|:::::::::|::::::::::|::::::::::|::::::::::|::::::::::|" << endl;
 		}
-		cout << "_______________________________________________________________________________________________";
-		cout << endl;
-		cout << "Branch name: " << branch.c_str() << endl;
-		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-		cout << endl;
-
-
-		for (int j = 0; j < item; j++)
-		{
-			cout << fixed << setprecision(2) << "Item code: " << code[j] << endl << "Number of Item sold: " << amount[j]
-				<< endl << "Price per unit item: " << price[j] << endl << "Total paid (amount x price) : " << paid[j] << endl;
+		char choice;
+		cout << "Do you want to add more? (Y/N) --> ";
+		cin >> choice;
+		if (choice == 'y' || choice == 'Y') {
+			cout << "How many sales record you want to key in: ";
+			cin >> count;
 			cout << endl;
 		}
-
-		cout << "_______________________________________________________________________________________________";
-		cout << endl << "Want to add new branch (y/n) ?: ";
-		cin >> opt;
-
-		while (opt != 'y' && opt != 'Y' && opt != 'n' && opt != 'N')
-		{
-			cout << "Error! Please insert again: ";
-			cin >> opt;
-		}
-		cout << "_______________________________________________________________________________________________";
-		cout << endl;
-		if (opt == 'y' || opt == 'Y')
-		{
-			cout << "Insert Branch name: ";
-			cin >> branch;
-			cout << "How many item you want to insert?: ";
-			cin >> item;
-			cout << "-----------------------------------------------------------------------------------------------";
-		}
-		cout << endl;
+		else if (choice == 'n' || choice == 'N')
+			break;
 	}
-
 
 	return 0;
 }
