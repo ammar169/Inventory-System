@@ -1,8 +1,8 @@
 //This program is for the manager to record the sales.
-#include "Sales.h"
 #include <iostream>
 #include <string>
 #include <ctime>
+#include "Sales.h"
 using namespace std;
 
 int main() {
