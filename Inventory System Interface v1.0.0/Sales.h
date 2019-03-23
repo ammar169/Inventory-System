@@ -2,6 +2,7 @@
 #ifndef _SALES_H //If Sales.h is not included
 #define _SALES_H //define this so that compiler know it has been included
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <ctime>
 
@@ -17,7 +18,7 @@ class Sales {
 public:
 	//Default constructor
 	Sales(char category[] = 0, double price = 0, int code[] = 0, int amount = 0, int date = 1, int month = 1, int year = 1900);
-
+	void recordSales();
 	void currentDate();
 };
 

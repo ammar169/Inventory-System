@@ -35,3 +35,28 @@ void Sales::currentDate() {
 	//Shows the current date
 	std::cout << "Today's date: " << date << " " << m[month] << " " << year << std::endl;
 }
+void Sales::recordSales()
+{
+	std::string fname;
+
+	std::cout << "Insert file name: ";
+	std::cin >> fname;
+
+	fname += ".txt";
+
+	std::ofstream ofile;
+
+	ofile.open(fname.c_str());
+
+	ofile << "Date: " << date << "/" << month << "/" << year;
+	for (int i = 0; i < 50; i++)
+	{
+		ofile << category[i];
+	}
+	std::cout <<std::endl;
+	ofile << price << "(MYR)\n";
+	ofile << code << std::endl;
+	ofile << amount << std::endl << std::endl;
+
+	ofile.close();
+}
