@@ -1,4 +1,4 @@
-//This program is for the manager to record the sales.
+//This program is for the manager to record the sales in a day.
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -11,44 +11,51 @@ int main() {
 	double	price;
 	int		code[8];
 	int		amount;
-	int		date	= 1; //To hold current date
-	int		month	= 1; //To hold current month
+	int		date	= 1;	//To hold current date
+	int		month	= 1;	//To hold current month
 	int		year	= 1900; //To hold current year
 
-	//To get current time
-	time_t	Time;
-	tm*		time_now;
-
-	char d[7][10]	= { "Sunday","Monday","Teusday","Wednesday","Thursday","Friday","Saturday" };
-	char m[12][10]	= { "January","February","March","April","May","June","July","August","September","October","November","December" };
-
-	time(&Time);
-	time_now = localtime(&Time);
-
-	date	= time_now->tm_mday;			cout << "Date: " << date << endl;
-	month	= time_now->tm_mon;				cout << "Month: " << month << endl;
-	year	= 1900 + time_now->tm_year;		cout << "Year: " << year << endl;
-
-	//Shows the current date
-	cout << "Today's date: " << date << " " << m[month] << " " << year << endl;
+	Sales a;
+	//Print current date
+	a.currentDate();
+	
+	//Promt user to insert the numbers of sales they want to store
+	int count;
+	cout << "How many sales record you want to key in: ";
+	cin >> count;
+	cout << endl;
 
 	for (int i = 0; i != 'x' || i != 'X'; i++) {
-		cout << endl;
-		cout << "\tProduct name\t: ";
-		cin >> product_name;
-		cout << endl;
-		cout << "\tProduct Reference No.\t: ";
-		cin >> code[8];
-		cout << endl;
-		cout << "\tProduct Price (per unit)\t: ";
-		cin >> price;
-		cout << endl;
-		cout << "\tProduct Amount\t: ";
-		cin >> amount;
-		cout << endl;
-		cout << "\tProduct Category\t: ";
-		cin >> category;
-		cout << endl;
+		for (int j = 0; j < count; j++) {
+			cout << "|::::::::::|:::::::::|::::::::::|::::::::::|::::::::::|::::::::::|" << endl;
+			cout << endl;
+			cout << "\tProduct " << i + 1 << "name\t: ";
+			cin >> product_name;
+			cout << endl;
+			cout << "\tProduct" << i + 1 << "Reference No.\t: ";
+			cin >> code[8];
+			cout << endl;
+			cout << "\tProduct" << i + 1 << "Price (per unit)\t: ";
+			cin >> price;
+			cout << endl;
+			cout << "\tProduct" << i + 1 << "Amount\t: ";
+			cin >> amount;
+			cout << endl;
+			cout << "\tProduct" << i + 1 << "Category\t: ";
+			cin >> category;
+			cout << endl;
+			cout << "|::::::::::|:::::::::|::::::::::|::::::::::|::::::::::|::::::::::|" << endl;
+		}
+		char choice;
+		cout << "Do you want to add more? (Y/N) --> ";
+		cin >> choice;
+		if (choice == 'y' || choice == 'Y') {
+			cout << "How many sales record you want to key in: ";
+			cin >> count;
+			cout << endl;
+		}
+		else if (choice == 'n' || choice == 'N')
+			break;
 	}
 
 	return 0;

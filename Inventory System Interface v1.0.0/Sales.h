@@ -1,7 +1,9 @@
 //Header files that contain Sales Record class
 #ifndef _SALES_H //If Sales.h is not included
-#define _SALES_H //define this so that compilerknow it has been included
+#define _SALES_H //define this so that compiler know it has been included
+#include <iostream>
 #include <string>
+#include <ctime>
 
 class Sales {
 	std::string	product_name;
@@ -9,12 +11,14 @@ class Sales {
 	double	price;
 	int		code[8];
 	int		amount;
-	int		date = 1; //To hold current date
-	int		month = 1; //To hold current month
-	int		year = 1900; //To hold current year
+	int		date; //To hold current date
+	int		month; //To hold current month
+	int		year; //To hold current year
 public:
-	Sales(int, int, int);
+	//Default constructor
+	Sales(char category[] = 0, double price = 0, int code[] = 0, int amount = 0, int date = 1, int month = 1, int year = 1900);
+
+	void currentDate();
 };
 
 #endif // !Sales.h
-
