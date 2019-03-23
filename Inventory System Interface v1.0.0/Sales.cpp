@@ -3,10 +3,9 @@
 #include "Sales.h"
 
 //This constructor will receive and store the input from main in private members.
-Sales::Sales(char category[] = 0, double price = 0, int code[] = 0, int amount = 0, int date = 1, int month = 1, int year = 1900) {
+Sales::Sales(double price, int amount, int date, int month, int year) {
 	this->product_name = product_name;
-	for (int i = 0; i < 50; i++) 
-		this->category[i] = category[i];
+	this->category = category;
 	this->price = price;
 	this->code[8] = code[8];
 	this->amount = amount;

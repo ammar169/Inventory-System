@@ -7,9 +7,9 @@ using namespace std;
 
 int main() {
 	string	product_name;
-	char	category[50];
+	string	category;
 	double	price;
-	int	code[8];
+	int	code;
 	int	amount;
 	int	date	= 1;	//To hold current date
 	int	month	= 1;	//To hold current month
@@ -25,26 +25,22 @@ int main() {
 	cin >> count;
 	cout << endl;
 
-	for (int i = 0; i != 'x' || i != 'X'; i++) {
-		for (int j = 0; j < count; j++) {
+	for (int i = 0; i != 'n' || i != 'N'; i++) {
+		int j = 0;
+		for (; j < count; j++) {
 			cout << "|::::::::::|:::::::::|::::::::::|::::::::::|::::::::::|::::::::::|" << endl;
 			cout << endl;
-			cout << "\tProduct " << i + 1 << "name\t: ";
+			cout << "\tProduct name\t: ";
 			cin >> product_name;
-			cout << endl;
-			cout << "\tProduct" << i + 1 << "Reference No.\t: ";
-			cin >> code[8];
-			cout << endl;
-			cout << "\tProduct" << i + 1 << "Price (per unit)\t: ";
+			cout << "\tProduct Reference No.\t: ";
+			cin >> code;
+			cout << "\tProduct Price (per unit)\t: ";
 			cin >> price;
-			cout << endl;
-			cout << "\tProduct" << i + 1 << "Amount\t: ";
+			cout << "\tProduct Amount\t: ";
 			cin >> amount;
-			cout << endl;
-			cout << "\tProduct" << i + 1 << "Category\t: ";
+			cout << "\tProduct Category\t: ";
 			cin >> category;
 			cout << endl;
-			cout << "|::::::::::|:::::::::|::::::::::|::::::::::|::::::::::|::::::::::|" << endl;
 		}
 		char choice;
 		cout << "Do you want to add more? (Y/N) --> ";
@@ -54,7 +50,7 @@ int main() {
 			cin >> count;
 			cout << endl;
 		}
-		else if (choice == 'n' || choice == 'N')
+		else if(choice == 'n' || choice == 'N')
 			break;
 	}
 
