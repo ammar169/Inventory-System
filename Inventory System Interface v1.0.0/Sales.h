@@ -9,11 +9,11 @@ class Sales {
 	std::string	product_name;
 	char	category[50];
 	double	price;
-	int		code[8];
-	int		amount;
-	int		date; //To hold current date
-	int		month; //To hold current month
-	int		year; //To hold current year
+	int	code[8];
+	int	amount;
+	int	date; //To hold current date
+	int	month; //To hold current month
+	int	year; //To hold current year
 public:
 	//Default constructor
 	Sales(char category[] = 0, double price = 0, int code[] = 0, int amount = 0, int date = 1, int month = 1, int year = 1900);
