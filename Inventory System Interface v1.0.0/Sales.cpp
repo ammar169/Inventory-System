@@ -34,6 +34,7 @@ void Sales::currentDate() {
 	//Shows the current date
 	std::cout << "Today's date: " << date << " " << m[month] << " " << year << std::endl;
 }
+//To record sales in a file
 void Sales::recordSales()
 {
 	std::string fname;

@@ -23,4 +23,4 @@ public:
 	void currentDate();
 };
 
-#endif // !Sales.h
+#endif // !SALES_H

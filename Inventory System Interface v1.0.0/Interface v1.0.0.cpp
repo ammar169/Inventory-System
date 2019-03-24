@@ -3,6 +3,7 @@
 #include <string>
 #include <ctime>
 #include "Sales.h"
+#include "Stock.h"
 using namespace std;
 
 int main() {
