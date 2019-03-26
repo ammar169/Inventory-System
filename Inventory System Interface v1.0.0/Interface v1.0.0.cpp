@@ -7,15 +7,12 @@
 using namespace std;
 
 int main() {
-	string	product_name;
-	string	category;
-	double	price;
-	int	code;
-	int	amount;
-	int	date	= 1;	//To hold current date
-	int	month	= 1;	//To hold current month
-	int	year	= 1900; //To hold current year
-
+	string product_name[] = { " " };
+	string category[] = { " " };
+	double price[] = { 0 };
+	int	code[] = { 0 };
+	int	amount[] = { 0 };
+	
 	Sales a;
 	//Print current date
 	a.currentDate();
@@ -32,15 +29,15 @@ int main() {
 			cout << "|::::::::::|:::::::::|::::::::::|::::::::::|::::::::::|::::::::::|" << endl;
 			cout << endl;
 			cout << "\tProduct name\t: ";
-			cin >> product_name;
+			cin >> product_name[j];
 			cout << "\tProduct Reference No.\t: ";
-			cin >> code;
+			cin >> code[j];
 			cout << "\tProduct Price (per unit)\t: ";
-			cin >> price;
+			cin >> price[j];
 			cout << "\tProduct Amount\t: ";
-			cin >> amount;
+			cin >> amount[j];
 			cout << "\tProduct Category\t: ";
-			cin >> category;
+			cin >> category[j];
 			cout << endl;
 		}
 		char choice;
@@ -53,6 +50,11 @@ int main() {
 		}
 		else if(choice == 'n' || choice == 'N')
 			break;
+	}
+
+	for (int i = 0; i < count; i++) {
+		//Pass the value to the Sales constructor
+		Sales b(product_name[i], category[i], price[i], code[i], amount[i]);
 	}
 
 	return 0;
