@@ -5,7 +5,25 @@
 #include "Sales.h"
 using namespace std;
 
-int main() {
+/*void recordSales(string pname,string cat,double price,int code,int amount)
+{
+	string fname;
+
+	cout << "Insert file name: ";
+	cin >> fname;
+
+	fname += ".txt";
+
+	ofstream ofile;
+
+	ofile.open(fname.c_str());
+
+	ofile << pname << " | " << cat << " | " << price << "(MYR)  | " << code << " | " << amount << endl << endl;
+
+	ofile.close();
+}*/
+int main() 
+{
 	string	product_name;
 	string	category;
 	double	price;
@@ -41,7 +59,10 @@ int main() {
 			cout << "\tProduct Category\t: ";
 			cin >> category;
 			cout << endl;
+
+			Sales item(product_name, category, price, code, amount);
 		}
+		//recordSales(product_name, category, price, code, amount);
 		char choice;
 		cout << "Do you want to add more? (Y/N) --> ";
 		cin >> choice;

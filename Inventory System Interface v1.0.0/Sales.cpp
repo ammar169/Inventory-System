@@ -7,13 +7,24 @@ Sales::Sales(double price, int amount, int date, int month, int year) {
 	this->product_name = product_name;
 	this->category = category;
 	this->price = price;
-	this->code[8] = code[8];
+	this->code = code;
 	this->amount = amount;
 	this->date = date;
 	this->month = month;
 	this->year = year;
 }
 
+Sales::Sales(const Sales &obj)
+{
+	product_name = obj.product_name;
+	category = obj.category;
+	price = obj.price;
+	code = obj.code;
+	amount = obj.amount;
+	date = obj.date;
+	month = obj.month;
+	year = obj.year;
+}
 
 //To get current time
 void Sales::currentDate() {
@@ -47,15 +58,8 @@ void Sales::recordSales()
 
 	ofile.open(fname.c_str());
 
-	ofile << "Date: " << date << "/" << month << "/" << year;
-	for (int i = 0; i < 50; i++)
-	{
-		ofile << category[i];
-	}
-	std::cout <<std::endl;
-	ofile << price << "(MYR)\n";
-	ofile << code << std::endl;
-	ofile << amount << std::endl << std::endl;
+	ofile << "Date: " << date << "/" << month << "/" << year << std::endl 
+		  << product_name << " | " << category << " | " << price << "(MYR)\n  | " << code << " | " << amount << std::endl << std::endl;
 
 	ofile.close();
 }

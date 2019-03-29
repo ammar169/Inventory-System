@@ -10,7 +10,7 @@ class Sales {
 	std::string	product_name;
 	std::string category;
 	double price;
-	int	code[8];
+	int	code;
 	int	amount;
 	int	date; //To hold current date
 	int	month; //To hold current month
@@ -18,6 +18,7 @@ class Sales {
 public:
 	//Default constructor
 	Sales(double price = 0, int amount = 0, int date = 1, int month = 1, int year = 1900);
+	Sales(const Sales &obj);
 
 	void recordSales();
 	void currentDate();
