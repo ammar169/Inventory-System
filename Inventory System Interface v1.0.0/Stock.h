@@ -7,20 +7,20 @@
 #include "Sales.h"
 
 class Stock {
-	std::string	product_name;
-	std::string	category;
-	int	reference_no;
-	int	amount;
-	int	available;
-	double price_per_unit;
-	int	inventory_value;
-	int	reorder_point;
-	int	order_quatity;
+	std::string product_name;
+	std::string category;
+	double price;
+	char code[50];
+	unsigned int amount;
+	unsigned int available;
+	unsigned int inventory_value;
+	unsigned int reorder_point;
+	unsigned int order_quatity;
 public:
-	//Default constructor
-	Stock(){}
-	//Constructor that access the private member of class Sales in Sales.h file
-	Stock(const Sales& sales);
+	Stock() {}	//Default constructor
+	Stock(const Sales& sales);	//Constructor that access the private member of class Sales in Sales.h file
+	
+	friend class Sales;
 };
 
 #endif // !STOCK_H

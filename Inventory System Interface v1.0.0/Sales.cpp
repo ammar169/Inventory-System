@@ -3,12 +3,13 @@
 #include "Sales.h"
 
 //This constructor will receive and store the input from main in private members.
-Sales::Sales(std::string product_name, std::string category, double price, int code, int amount) {
+Sales::Sales(std::string product_name, double price, char code[], unsigned int amount, std::string category) {
 	this->product_name = product_name;
-	this->category = category;
 	this->price	= price;
-	this->code = code;
+	for (int i = 0; i < 50; i++)
+		this->code[i] = code[i];
 	this->amount = amount;
+	this->category = category;
 }
 //To get current time
 void Sales::currentDate() {
@@ -23,25 +24,19 @@ void Sales::currentDate() {
 	time_now = localtime(&Time);
 
 	date = time_now->tm_mday;				//std::cout << "Date: " << date << std::endl;
-	month = time_now->tm_mon;					//std::cout << "Month: " << month << std::endl;
-	year = 1900 + time_now->tm_year;			//std::cout << "Year: " << year << std::endl;
+	month = time_now->tm_mon;				//std::cout << "Month: " << month << std::endl;
+	year = 1900 + time_now->tm_year;		//std::cout << "Year: " << year << std::endl;
 
 	//Shows the current date
 	std::cout << "Today's date: " << date << " " << m[month] << " " << year << std::endl;
 }
 //To record sales in a file
-std::ofstream& operator<<(std::ofstream& in, const Sales& sales) {
+void Sales::storeSales() {
 	const char m[12][10] = { "January","February","March","April","May","June","July","August","September","October","November","December" };
-	//String type variable to hold the file name based on the date
 	std::string file_name; 
-	//To create a string of name based on the date
-	file_name = std::to_string(sales.date) + static_cast<std::string>(m[sales.month]) + std::to_string(sales.year) + ".txt";
+	file_name = std::to_string(date) + static_cast<std::string>(m[month]) + std::to_string(year) + ".txt";	//To create a string of name based on the date
 
-	//To open a file named based on the date
-	in.open(file_name, std::ostream::out | std::ostream::app);
-
-	in << sales.product_name << " " << sales.code << " " << sales.category << " " << sales.price << " " << sales.amount << std::endl;
-	
-	in.close();
-	return in;
+	std::fstream outFile(file_name, std::ostream::out | std::ostream::app);	//To open a file named based on the date
+	outFile << product_name << " " << code << " " << category << " " << price << " " << amount << std::endl;
+	outFile.close();
 }
