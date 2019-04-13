@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include "Time.h"
 #include "Sales.h"
 #include "Stock.h"
 using namespace std;
@@ -9,26 +10,16 @@ using namespace std;
 int main() {
 	string product_name;
 	string category;
+	string code;
 	double price;
-	char code[50];
 	unsigned int amount;
 
-	Sales a;
-	a.currentDate();	//Print current date
+	Time t;
 
-	cout << "\tProduct name: ";
-	getline(cin, product_name);
-	cout << "\tProduct Category: ";
-	getline(cin, category);
-	cout << "\tProduct Reference No.: ";
-	cin >> code;	
-	cout << "\tProduct Price (per unit): ";
-	cin >> price; 
-	cout << "\tProduct Amount: ";
-	cin >> amount; 
-
-	Sales b(product_name, price, code, amount, category);
-	b.storeSales();
+	Sales a("Berus Gigi", "Alatan Mandi", "A18CS0116", 2.90, 30, t.getDate(), t.getMonth(), t.getYear());
+	a.recordSales();
+	Stock s(a);
+	s.recordStock();
 
 	return 0;
 }

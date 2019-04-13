@@ -120,10 +120,12 @@
     <ClCompile Include="Interface v1.0.0.cpp" />
     <ClCompile Include="Sales.cpp" />
     <ClCompile Include="Stock.cpp" />
+    <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sales.h" />
     <ClInclude Include="Stock.h" />
+    <ClInclude Include="Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

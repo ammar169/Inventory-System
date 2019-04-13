@@ -9,18 +9,21 @@
 class Stock {
 	std::string product_name;
 	std::string category;
+	std::string code;
 	double price;
-	char code[50];
 	unsigned int amount;
 	unsigned int available;
 	unsigned int inventory_value;
 	unsigned int reorder_point;
-	unsigned int order_quatity;
+	unsigned int order_quantity;
 public:
-	Stock() {}	//Default constructor
-	Stock(const Sales& sales);	//Constructor that access the private member of class Sales in Sales.h file
-	
+	friend class Time;
 	friend class Sales;
+
+	Stock() {}	//Default constructor
+	Stock(const Sales&);	//Constructor that access the private member of class Sales in Sales.h file
+
+	void recordStock();
 };
 
 #endif // !STOCK_H

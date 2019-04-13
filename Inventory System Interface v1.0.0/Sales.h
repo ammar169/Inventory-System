@@ -4,26 +4,24 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <ctime>
 #include <cstring>
 #include "Stock.h"
 
 class Sales {
 	std::string product_name;
 	std::string category;
+	std::string code;
 	double price;
-	char code[50];
 	unsigned int amount;
-	int	date; //To hold current date
-	int	month; //To hold current month
-	int	year; //To hold current year
+	int	date = 1; //To hold current date
+	int	month = 0; //To hold current month
+	int	year = 1900; //To hold current year
 public:
-	Sales(char code = 0, double price = 0, unsigned int amount = 0, int date = 1, int month = 1, int year = 1900) {}	//Default constructor
-	Sales(std::string, double, char[], unsigned int, std::string);	//Constructor that receive parameter from main function
-	
-	void currentDate();	//To get current date
-	void storeSales();	//To record sales in files
-	friend class Stock;	//Allow class Stock in Stoch.h file to access the private member of this class (Sales class)
+	Sales(std::string p_n = "", std::string ctg = "", std::string cd = "", double p = 0, unsigned int a = 0, int d = 1, int m = 0, int y = 1900) :
+		product_name(p_n), category(ctg), code(cd), price(p), amount(a), date(d), month(m), year(y) {}	//Constructor that receive parameter from main function
+
+	void recordSales();	//To record sales in files
+	friend class Stock;
 };
 
 #endif // !SALES_H
