@@ -17,13 +17,13 @@ class Stock {
 	unsigned int reorder_point;
 	unsigned int order_quantity;
 public:
-	friend class Time;
 	friend class Sales;
 
 	Stock() {}	//Default constructor
 	Stock(const Sales&);	//Constructor that access the private member of class Sales in Sales.h file
 
 	void recordStock();
+	void updateStock();
 };
 
 #endif // !STOCK_H

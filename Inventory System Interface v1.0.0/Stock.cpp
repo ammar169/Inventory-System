@@ -11,6 +11,14 @@ Stock::Stock(const Sales& sales) {
 	amount = sales.amount;	std::cout << amount << std::endl;
 	category = sales.category;	std::cout << category << std::endl;
 }
+//This class will update the Stock record based on the input of Sales record
+void Stock::updateStock() {
+	std::fstream File(FILENAME, std::ios::in);
+
+
+
+	File.close();
+}
 
 void Stock::recordStock() {
 	std::fstream File(FILENAME, std::ios::out);
