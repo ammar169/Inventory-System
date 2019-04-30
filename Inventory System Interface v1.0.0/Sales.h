@@ -6,22 +6,57 @@
 #include <string>
 #include <cstring>
 #include "Stock.h"
+#include "Time.h"
 
 class Sales {
+	std::string branch;
 	std::string product_name;
 	std::string category;
 	std::string code;
 	double price;
 	unsigned int amount;
-	int	date = 1; //To hold current date
-	int	month = 0; //To hold current month
-	int	year = 1900; //To hold current year
 public:
-	Sales(std::string p_n = "", std::string ctg = "", std::string cd = "", double p = 0, unsigned int a = 0, int d = 1, int m = 0, int y = 1900) :
-		product_name(p_n), category(ctg), code(cd), price(p), amount(a), date(d), month(m), year(y) {}	//Constructor that receive parameter from main function
+	//Default Constructor that receive parameter from main function
+	Sales(std::string b = "", std::string p_n = "", std::string ctg = "", std::string cd = "", double p = 0, unsigned int a = 0) :
+		branch(b), product_name(p_n), category(ctg), code(cd), price(p), amount(a) {}	
 
-	void recordSales();	//To record sales in files
-	friend class Stock;
+	void recordSales();
+	void setBranch(std::string b) {
+		branch = b;
+	}
+	void setName(std::string name) { 
+		product_name = name;
+	}
+	void setCateg(std::string categ) {
+		category = categ;
+	}
+	void setCode(std::string c) {
+		code = c;
+	}
+	void setPrice(double p) {
+		price = p;
+	}
+	void setAmount(unsigned int a) {
+		amount = a;
+	}
+	std::string getBranch() {
+		return branch;
+	}
+	std::string getName() {
+		return product_name;
+	}
+	std::string getCateg() {
+		return category;
+	}
+	std::string getCode() {
+		return code;
+	}
+	double getPrice() {
+		return price;
+	}
+	unsigned int getAmount() {
+		return amount;
+	}
 };
 
 #endif // !SALES_H
