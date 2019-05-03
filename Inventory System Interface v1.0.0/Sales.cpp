@@ -1,4 +1,4 @@
-//This program are the implementation of the constructors and function definition
+//This program are the implementation of the constructors and/or function definition
 //in Sales.h file
 #include "Sales.h"
 
@@ -12,10 +12,11 @@ void Sales::recordSales() {
 	file_name = branch + std::to_string(t.getDate()) + static_cast<std::string>(m[t.getMonth()]) + std::to_string(t.getYear()) + ".csv";	
 	/*std::cout << file_name << std::endl;*/
 	
-	//each input will be append to the new lines
+	//each input will be append to the new lines (new row)
 	std::ofstream ofile(file_name, std::ofstream::app);
 	if (!ofile.is_open()) {
 		std::cout << "Warnings!!! Error opening file..." << std::endl;
+		return;
 	}
 
 	ofile << product_name << "," << category << "," << price << "," << code << "," << amount << std::endl;

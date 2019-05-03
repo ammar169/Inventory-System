@@ -1,5 +1,6 @@
-#ifndef _TIME_H
-#define _TIME_H
+//Header files that contain Time class
+#ifndef _TIME_H //If Time.h is not included
+#define _TIME_H //define this so that compiler know it has been included
 #include <iostream>
 #include <ctime>
 
@@ -27,4 +28,4 @@ public:
 	}
 };
 
-#endif
+#endif // !TIME_H

@@ -5,7 +5,6 @@
 #include <fstream>
 #include <string>
 #include <cstring>
-#include "Stock.h"
 #include "Time.h"
 
 class Sales {
