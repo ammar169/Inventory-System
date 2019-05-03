@@ -47,7 +47,7 @@ int main() {
 	order.read_File();
 	order.displaySupplier();
 
-	//Enter new item 
+	//Enter new item
 	string _branch[4] = {};
 	string* _product_name = new string[MAX_SIZE];
 	string* _category = new string[MAX_SIZE];
