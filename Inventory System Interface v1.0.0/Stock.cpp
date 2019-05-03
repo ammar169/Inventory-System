@@ -125,5 +125,5 @@ void Stock::addNewItem(std::string branch) {
 //To delete an item information in csv file
 //based on the index input
 void Stock::deleteItem(int index) {
-
+	//a
 }
