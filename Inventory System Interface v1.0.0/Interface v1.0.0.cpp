@@ -34,8 +34,10 @@ int main() {
 		}
 	}
 
+	stock.readFile(sales);
 	stock.displayRecord(sales);
 	stock.updateStock(sales);
+	stock.readFile(sales);
 	stock.displayRecord(sales);
 
 	return 0;
