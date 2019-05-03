@@ -26,7 +26,6 @@ void Stock::readFile(Sales sale) {
 
 	//To store all the available data from the csv file into the respective variable
 	//variable 'row' are to hold the number of iteration as well as to count the number of row (lines) in the csv file
-	/*int row;*/
 	for (row = 0; getline(iFile, product_name[row], ','); row++) {
 		getline(iFile, category[row], ',');
 		getline(iFile, price[row], ',');
@@ -71,8 +70,6 @@ void Stock::updateStock(Sales sale) {
 		}
 	}
 
-	/*iFile.close();*/
-
 	//To write file
 	std::ofstream oFile(filename);
 
@@ -94,7 +91,7 @@ void Stock::updateStock(Sales sale) {
 
 //To display all the data in the csv file (based on the branch)
 //the parameter are to be considered to be change to getBranch
-void Stock::displayRecord(Sales sale){
+void Stock::displayRecord(){
 	//To display the current data in csv file based on the its type
 	std::cout << std::left << std::setw(40)  << "Product Name" << std::left << std::setw(30) 
 		<< "Category" << std::left << std::setw(25) << "Price per unit (RM)" << std::left << std::setw(15)
@@ -112,6 +109,21 @@ void Stock::displayRecord(Sales sale){
 	}
 }
 
-void Stock::addNewItem() {
+//To add new item into the csv file (based on branch)
+//by appending it to new line (below)
+void Stock::addNewItem(std::string branch) {
+	std::string filename = branch + ".csv";
+
+	std::ofstream oFile(filename, std::ios::app);
+
+	oFile << *product_name << "," << *category << "," << *price << ","
+		<< *code << "," << *available << "," << *reorder_point << "," << *inventory_value << std::endl;
+
+	oFile.close();
+}
+
+//To delete an item information in csv file
+//based on the index input
+void Stock::deleteItem(int index) {
 
 }

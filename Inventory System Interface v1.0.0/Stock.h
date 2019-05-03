@@ -10,6 +10,7 @@
 #define MAX_SIZE 16382
 
 class Stock {
+protected:
 	Sales sale;
 	std::string* product_name;
 	std::string* category;
@@ -18,16 +19,11 @@ class Stock {
 	std::string* available;
 	std::string* reorder_point;
 	std::string* inventory_value;
-	/*int available;
-	int reorder_point;
-	double inventory_value;*/
 	int row;
 public:
-	/*Stock() :sale(NULL), available(0), reorder_point(0), inventory_value(0) {}*/
-	/*Stock(int a = 0, int rp = 0, double iv = 0, int r = 0) :available(a), reorder_point(rp), inventory_value(iv), row(r) {}*/
 	Stock() :product_name(0), category(0), price(0), code(0), available(0), reorder_point(0), inventory_value(0), row(0) {}
-	Stock(std::string* pn, std::string* ct, std::string* cd, std::string* p, std::string* a, std::string* rp, std::string* iv, int r = 0)
-		:product_name(pn), category(ct), price(p), code(cd), available(a), reorder_point(rp), inventory_value(iv), row(r) {}
+	Stock(std::string* pn, std::string* ct, std::string* cd, std::string* p, std::string* a, std::string* rp, std::string* iv, int r)
+		:product_name(pn), category(ct), price(p), code(cd), available(a), reorder_point(rp), inventory_value(iv), row(0) {}
 	~Stock() {
 		delete[] product_name;
 		delete[] category;
@@ -40,8 +36,31 @@ public:
 
 	void readFile(Sales sale);
 	void updateStock(Sales sale);
-	void displayRecord(Sales sale);
-	void addNewItem();
+	void displayRecord();
+	void addNewItem(std::string branch);
+	void deleteItem(int index);
+	
+	void setName(std::string* name) {
+		product_name = name;
+	}
+	void setCateg(std::string* categ) {
+		category = categ;
+	}
+	void setPrice(std::string* p) {
+		price = p;
+	}
+	void setCode(std::string* c) {
+		code = c;
+	}
+	void setAmount(std::string* a) {
+		available = a;
+	}
+	void setReorder(std::string* rp) {
+		reorder_point = rp;
+	}
+	void setInvent(std::string* iv) {
+		inventory_value = iv;
+	}
 };
 
 #endif // !STOCK_H
