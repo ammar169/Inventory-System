@@ -31,10 +31,12 @@ int main() {
 			sales.setPrice(price[j]);
 			sales.setAmount(amount[j]);
 			sales.recordSales();
-			stock.displayRecord(sales);
-			stock.updateStock(sales);
 		}
 	}
+
+	stock.displayRecord(sales);
+	stock.updateStock(sales);
+	stock.displayRecord(sales);
 
 	return 0;
 }

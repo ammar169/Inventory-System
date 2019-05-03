@@ -16,8 +16,8 @@ class Sales {
 	unsigned int amount;
 public:
 	//Default Constructor that receive parameter from main function
-	Sales(std::string b = "", std::string p_n = "", std::string ctg = "", std::string cd = "", double p = 0, unsigned int a = 0) :
-		branch(b), product_name(p_n), category(ctg), code(cd), price(p), amount(a) {}	
+	Sales(std::string b = "", std::string p_n = "", std::string ctg = "", std::string cd = "", double p = 0, unsigned int a = 0) 
+		:branch(b), product_name(p_n), category(ctg), code(cd), price(p), amount(a) {}	
 
 	void recordSales();
 	void setBranch(std::string b) {
