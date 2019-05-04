@@ -38,10 +38,10 @@ int main() {
 		}
 	}
 
-	stock.readFile(sales);
+	stock.readFile(sales.getBranch());
 	stock.displayRecord();
 	stock.updateStock(sales);
-	stock.readFile(sales);
+	stock.readFile(sales.getBranch());
 	stock.displayRecord();
 
 	order.read_File();
@@ -92,9 +92,16 @@ int main() {
 		stock.addNewItem(_branch[i]);
 	}
 
-	stock.readFile(sales);
+	stock.readFile(sales.getBranch());
 	stock.displayRecord();
 	//string supplier = "Takpaweyh Brands Malaysia Sdn Bhd";
+
+	//delete
+	int index;
+	cout << "Enter index that you want to delete --> ";
+	cin >> index;
+	stock.readFile(sales.getBranch());
+	stock.deleteItem(index);
 
 	return 0;
 }

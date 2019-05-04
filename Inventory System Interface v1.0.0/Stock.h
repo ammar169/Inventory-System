@@ -34,7 +34,7 @@ public:
 		delete[] inventory_value;
 	}
 
-	void readFile(Sales sale);
+	void readFile(std::string branch);
 	void updateStock(Sales sale);
 	void displayRecord();
 	void addNewItem(std::string branch);

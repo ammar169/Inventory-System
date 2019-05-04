@@ -4,7 +4,8 @@
 
 //To read the csv file and 
 //store the contents in the variable (private) respectively
-void Stock::readFile(Sales sale) {
+//Its actually to receive the branch name instead of object as parameter
+void Stock::readFile(std::string branch) {
 	product_name = new std::string[MAX_SIZE];
 	category = new std::string[MAX_SIZE];
 	code = new std::string[MAX_SIZE];
@@ -116,6 +117,7 @@ void Stock::addNewItem(std::string branch) {
 
 	std::ofstream oFile(filename, std::ios::app);
 
+	//To store whatever information that tha user key in
 	oFile << *product_name << "," << *category << "," << *price << ","
 		<< *code << "," << *available << "," << *reorder_point << "," << *inventory_value << std::endl;
 
@@ -125,5 +127,20 @@ void Stock::addNewItem(std::string branch) {
 //To delete an item information in csv file
 //based on the index input
 void Stock::deleteItem(int index) {
-	//a
+	std::string filename = sale.getBranch() + ".csv";
+	
+	std::ofstream oFile(filename);
+
+	//To delete the item based on index
+	for (int i = 0; i < index; i++) {
+		if (i == (index - 1)) {
+			i++;
+			oFile << product_name[i] << "," << category[i] << "," << price[i] << ","
+				<< code[i] << "," << available[i] << "," << reorder_point[i] << "," << inventory_value[i] << std::endl;
+		}
+		oFile << product_name[i] << "," << category[i] << "," << price[i] << ","
+			<< code[i] << "," << available[i] << "," << reorder_point[i] << "," << inventory_value[i] << std::endl;
+	}
+
+	oFile.close();
 }
